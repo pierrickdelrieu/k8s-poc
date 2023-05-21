@@ -19,7 +19,3 @@ spec:
             - containerPort: 8080
       imagePullSecrets:
         - name: harbor
-      volumes:
-        - name: cert-volume
-          secret:
-            secretName: cert-secret
