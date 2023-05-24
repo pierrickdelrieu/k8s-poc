@@ -3,6 +3,8 @@ kind: ClusterPolicy
 metadata:
   name: restrict-image-pulls
 spec:
+  validationFailureAction: Enforce
+  background: true
   rules:
     - name: validate-image-pulls
       match:
@@ -14,4 +16,4 @@ spec:
         pattern:
           spec:
             containers:
-              - image: "!^192.168.50.100/.*"
+              - image: "192.168.50.100/*"
