@@ -1,12 +1,15 @@
 apiVersion: rbac.authorization.k8s.io/v1
-kind: Role
+kind: ClusterRole
 metadata:
-  name: developer
-  namespace: default
+  name: developpeur-clusterrole
 rules:
-- apiGroups: ["*"]
+- apiGroups: [""]
   resources: ["*"]
   verbs: ["*"]
+  resourceNames: ["*"]
+  namespace: default
 - apiGroups: [""]
-  resources: ["namespaces"]
-  verbs: ["get", "create"]
+  resources: ["*"]
+  verbs: [""]
+  resourceNames: ["*"]
+  namespace: kube-system
