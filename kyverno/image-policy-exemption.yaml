@@ -1,0 +1,10 @@
+apiVersion: kyverno.io/v1
+kind: ClusterPolicyExemption
+metadata:
+  name: image-policy-exemption
+spec:
+  policyName: restrict-image-pulls
+  match:
+    resources:
+      namespaces:
+        - kube-system
