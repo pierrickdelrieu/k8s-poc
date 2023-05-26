@@ -3,18 +3,21 @@ apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: developer-clusterrole
 rules:
-  # Autorisations pour les ressources de base dans le namespace par défaut
-- apiGroups: [""]
-  resources: ["pods", "services", "deployments"]
-  verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
-
-  # Autorisations pour lister les namespaces
-- apiGroups: [""]
-  resources: ["namespaces"]
-  verbs: ["get", "list", "watch"]
-
   # Autorisations pour lister les ressources dans le namespace "kube-system"
 - apiGroups: [""]
   resources: ["namespaces"]
   resourceNames: ["kube-system"]
-  verbs: ["get", "list", "watch"]
+  verbs: [""]
+  
+  # Autorisations pour les ressources de base dans le namespace par défaut
+- apiGroups: [""]
+  resources: ["pods", "services", "deployments"]
+  resourceNames: ["default"]
+  verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+
+  # Autorisations pour les namespaces
+- apiGroups: [""]
+  resources: ["namespaces"]
+  verbs: ["get", "list", "watch", "create"]
+
+
