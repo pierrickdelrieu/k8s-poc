@@ -13,7 +13,7 @@ metadata:
   name: developer-role-default
   namespace: default
 rules:
-- apiGroups: [""]
+- apiGroups: ["*"]
   resources: ["pods", "services", "deployments"]
   verbs: ["get", "list", "watch", "create", "update", "delete"]
 ---
@@ -23,7 +23,7 @@ metadata:
   name: developer-role-wordpress
   namespace: wordpress
 rules:
-- apiGroups: [""]
+- apiGroups: ["*"]
   resources: ["pods", "services", "deployments"]
   verbs: ["get", "list", "watch", "create", "update"]
 ---
@@ -33,6 +33,6 @@ metadata:
   name: developer-role-nginx
   namespace: nginx
 rules:
-- apiGroups: [""]
+- apiGroups: ["*"]
   resources: ["pods", "services", "deployments"]
   verbs: ["get", "list", "watch", "create", "update"]
